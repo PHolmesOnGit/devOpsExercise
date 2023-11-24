@@ -1,0 +1,36 @@
+Exercise: Star Wars Cron Job (python)
+
+Your company has tasked you with writing an background cron job. Input data has been provided as input.yaml.
+Write a script in Python that will call out to the Star Wars API and gather information on each object in input.yaml.
+The output should be in JSON format so that it can be ingested by another service, to be created in the future.
+Write the output to a volume which survives the exit of the cronjob.
+
+
+Some criteria for the project:
+
+
+a .json file should be created for each object in input.yaml.
+the naming convention should match <object.name>.json for each object.
+
+
+Exercise: Containerization
+
+Preperation
+You should have docker, helm and minikube installed for this exercises.
+
+Objective 1
+
+Containerize the golang or python challenge in preparation to deploying it to Minikube
+
+Dockerfile must be produced which will be used to build this container.
+Container must run the executable from the Bears in the Forest challenge, or execute the python script in the Star Wars API challenge
+For Star Wars API: Container must write the output json files to a volume which survives the exit of the container
+
+
+Objective 2 (Helm)
+
+Create a helm chart and use it to deploy the container (from part 1) to kubernetes (locally or to the instance made in the IaC exercise above)
+
+Must include all necessary manifests to support the challenge container.
+For Bears in the Forest: Must expose the challenge container HTTP service
+For Star Wars API: Must me implemented as a cronjob which is set to run every hour
