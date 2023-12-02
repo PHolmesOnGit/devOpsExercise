@@ -9,32 +9,38 @@ Test to-do
 
 """
 
-import yaml
-import requests
+from unittest import TestCase
+from unittest.mock import patch
+
+import apicall
 
 
+class TestCallStarWarsAPI(TestCase):
+    @patch('apicall.CallStarWarsAPI')
+    def test_getting_data_from_file(self, MockRead):
+        data = MockRead()
 
-def verify_input_file_exists():
-    try:
-        with open('input.yaml') as f:
-            dict = yaml.load(f, Loader=yaml.FullLoader)
-            print(dict)
-            print("Test verify input file exists succeeded")
-    except FileNotFoundError:
-        print("Test verify input file exists failed: No input.yaml file")
+        data.info.return_value = [
+            {
+                'type': 'person',
+                'id': 1,
+            }
+        ]
 
+        response = data.info()
+        print(data.info.return_value)
+        self.assertIsNotNone(response)
+        self.assertIsInstance(response[0], dict)
 
-def test_swapi_call():
-    test_url = "https://swapi.dev/api/planets/1"
-    response = requests.request('GET', test_url)
-    try:
-        print(response.raise_for_status())
-        print(response.json())
-    except requests.exceptions.HTTPError:
-        print("Test no work it fail")
+        # Additional assertions
+        assert MockRead is apicall.CallStarWarsAPI  # The mock is equivalent to the original
 
+        assert MockRead.called  # The mock wasP called
 
+        data.info.assert_called_with()  # We called the posts method with no arguments
 
+        data.info.assert_called_once_with()  # We called the posts method once with no arguments
 
-verify_input_file_exists()
-test_swapi_call()
+        data.reset_mock()  # Reset the mock object
+
+        data.info.assert_not_called()  # After resetting, posts has not been called.

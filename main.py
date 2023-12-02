@@ -11,12 +11,15 @@ file with the data to a directory that exists outside the project.
 
 """
 
-import yaml
-
 from apicall import CallStarWarsAPI
 
 call_api = CallStarWarsAPI()
 
-print(call_api.get_data_from_file())
+x = call_api.get_data_from_file()
 
+print(x)
 
+id_list, type_list = x
+
+y = call_api.make_api_call(type_list, id_list)
+print(y)
