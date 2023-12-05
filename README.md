@@ -19,7 +19,7 @@ HOW TO RUN THE PROGRAM
 
 ########################################################
 
-At the moment is is pretty simple to set up and run. The program doesn't require any libraries that aren't usually preinstalled with python 3
+At the moment it is pretty simple to set up and run. The program doesn't require any libraries that aren't usually preinstalled with python 3
 
 
 
