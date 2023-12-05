@@ -1,25 +1,20 @@
 """
 
-Main to-do
-
-- import input.yaml data
-
-- create a function that ingests the input.yaml data into proper headers to make a call to the star wars API
-
-- create a function that jsonifies the data from the star wars api (if it isn't already) and exports a json
-file with the data to a directory that exists outside the project.
+Running main will make a call to the Star Wars API and will grab the requested data from input.yaml and then write .json
+files in your Documents folder for each object in input.yaml
 
 """
 
 from apicall import CallStarWarsAPI
+from fileexport import FileExport
 
 call_api = CallStarWarsAPI()
+file_export = FileExport()
 
-x = call_api.get_data_from_file()
+data_needed_for_api_call = call_api.get_data_from_file()
 
-print(x)
+id_list, type_list = data_needed_for_api_call
 
-id_list, type_list = x
+api_response = call_api.make_api_call(type_list, id_list)
 
-y = call_api.make_api_call(type_list, id_list)
-print(y)
+file_export.get_data_and_turn_into_json_file(api_response)
