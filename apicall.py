@@ -14,8 +14,6 @@ import requests
 
 
 class CallStarWarsAPI:
-    def __init__(self):
-        self.get_data_from_file()
 
     def get_data_from_file(self):
         # Gets ID and type data from input.yaml, which will be used for the api call
