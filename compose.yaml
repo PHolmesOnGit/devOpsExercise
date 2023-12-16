@@ -13,8 +13,7 @@ services:
       context: .
     ports:
       - 5000:5000
-    volumes:
-      - outputfolder:/var/lib
+
 
 
 
@@ -45,8 +44,6 @@ services:
 #       interval: 10s
 #       timeout: 5s
 #       retries: 5
-volumes:
-    outputfile
 # secrets:
 #   db-password:
 #     file: db/password.txt

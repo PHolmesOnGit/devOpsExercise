@@ -37,7 +37,7 @@ class FileExport:
 
                     file_name = f"{info_dict['name']}.json"
 
-                    with open(os.path.join(os.path.expanduser('~'), 'Documents', file_name), "w") as outfile:
+                    with open(os.path.join("/data", file_name), "w") as outfile:
                         outfile.write(json_object)
 
                 export_json_file_to_external_directory(info_dict)
