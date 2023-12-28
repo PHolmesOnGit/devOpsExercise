@@ -39,3 +39,6 @@ HOW TO RUN THE PROGRAM (Docker Required)
    - A bind mount essentially "links" those two folder locations, whatever is writted in the /data folder will show up in your Documents folder.
    - After you run this command, you'll notice the .json files will show up in your documents folder. 
 
+VIDEO INSUTRCTIONS AND INSTRUCTIONS FOR WINDOWS:
+
+https://www.twitch.tv/videos/2016325437
